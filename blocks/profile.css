@@ -1,8 +1,7 @@
 .profile {
   display: flex;
   align-items: center;
-  margin: 40px 0 51px 0;
-  border-bottom: 1px solid #545454;
+  margin-bottom: 51px;
 }
 
 .profile__header-flex {
@@ -46,7 +45,7 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 730px) {
   .profile__title {
     font-size: 40px;
   }
