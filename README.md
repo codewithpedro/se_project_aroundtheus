@@ -38,4 +38,4 @@ Project Link: [https://github.com/codewithpedro/se_project_aroundtheus](https://
 
 Deployed Github Page: [https://codewithpedro.github.io/se_project_aroundtheus](https://codewithpedro.github.io/se_project_aroundtheus)
 
-Video showcase: []
+Video showcase: [Google Drive](https://drive.google.com/file/d/1FZo7PunYG0jG1peZpKIR0MwcevEWUch-/view?usp=sharing)
