@@ -36,4 +36,6 @@ Pedro Gomez - [gomez.pedro@outlook.com](mailto:gomez.pedro@outlook.com)
 
 Project Link: [https://github.com/codewithpedro/se_project_aroundtheus](https://github.com/codewithpedro/se_project_aroundtheus)
 
+Deployed Github Page: [https://codewithpedro.github.io/se_project_aroundtheus](https://codewithpedro.github.io/se_project_aroundtheus)
+
 Video showcase: []
