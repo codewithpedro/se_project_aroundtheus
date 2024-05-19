@@ -101,11 +101,13 @@
 
   .profile__header-flex {
     align-items: start;
+    justify-content: center;
   }
 
   .profile__title {
     margin: 0 10px 15px 0;
     font-size: 22px;
+    max-width: 254px;
   }
 
   .profile__edit-button {
@@ -116,10 +118,18 @@
   .profile__description {
     font-size: 14px;
     margin: 0 0 36px 0;
+    max-width: 282px;
 
   }
 
   .profile__add-button {
     width: 100%
+  }
+}
+
+@media screen and (max-width: 618px) {
+  .profile__add-button {
+    max-width: 282px;
+    margin-left: 0px;
   }
 }
