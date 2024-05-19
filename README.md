@@ -23,11 +23,6 @@ Our social media website addresses these issues by providing a seemless UI and p
 - Like on posts.
 - View media from people they follow.
 
-![Feed Screenshot](images/feed_screenshot.png)
-![Profile Screenshot](images/profile_screenshot.png)
-![Messages Screenshot](images/messages_screenshot.png)
-
-
 ## Plans for Improving the Project
 
 - **Adding interactive UI**: With javascript we can add a listener for the heart to turn red or change button for it to say subscribe. 
