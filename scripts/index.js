@@ -27,4 +27,21 @@ const initialCards = [
 
 console.log(initialCards);
 
+const addButton = document.querySelector(".profile__add-button")
+const editButton = document.querySelector(".profile__edit-button");
+const modal = document.querySelector(".modal");
+const closeButton = modal.querySelector(".modal__close")
+let isOpen = false;
 
+function openModule(event){
+  event.preventDefault();
+  modal.classList.add("modal__opened");
+}
+
+function closeModule(event){
+  event.preventDefault();
+  modal.classList.remove("modal__opened");
+}
+
+editButton.addEventListener("click", openModule);
+closeButton.addEventListener("click", closeModule);
