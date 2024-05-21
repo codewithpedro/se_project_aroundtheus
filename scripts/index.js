@@ -34,18 +34,26 @@ const modal = document.querySelector(".modal");
 const modalCloseButton = modal.querySelector(".modal__close")
 const modalName = document.querySelector("#modal__name");
 const modalDesc = document.querySelector("#modal__desc");
+const modalEditForm = document.querySelector(".modal__form")
 
-function openModule(e){
+function openModal(e){
   e.preventDefault();
   modal.classList.add("modal__opened");
   modalName.value = profileTitle.textContent;
   modalDesc.value = profileDesc.textContent;
 }
 
-function closeModule(e){
-  e.preventDefault();
+function closeModal(){
   modal.classList.remove("modal__opened");
 }
 
-profileEditButton.addEventListener("click", openModule);
-modalCloseButton.addEventListener("click", closeModule);
+function saveModal(e){
+  e.preventDefault();
+  profileTitle.textContent = modalName.value;
+  profileDesc.textContent = modalDesc.value;
+  closeModal();
+}
+
+profileEditButton.addEventListener("click", openModal);
+modalCloseButton.addEventListener("click", closeModal);
+modalEditForm.addEventListener("submit", saveModal);

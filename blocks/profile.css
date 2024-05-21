@@ -10,7 +10,7 @@
 }
 
 .profile__title {
-  max-width: 400px;
+  max-width: 405px;
   font-family: 'Inter', arial, sans-serif;
   font-size: 42px;
   line-height: 1.2;
@@ -81,6 +81,13 @@
 
   .profile__add-button {
     width: 50px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .profile__title {
+    font-size: 33px;
+    max-width: 325px;
   }
 }
 
