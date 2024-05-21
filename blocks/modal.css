@@ -111,8 +111,14 @@
     padding: 22px 25px;
   }
 
+  .modal__heading {
+    font-size: 18px;
+  }
+
   .modal__close {
-    top: -54px;
+    top: -40px;
     right: 0px;
+    width: 26px;
+    height: 26px;
   }
 }
