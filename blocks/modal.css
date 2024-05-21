@@ -12,7 +12,7 @@
   padding: 0 9px;
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
 }
 
@@ -91,6 +91,7 @@
   border: none;
   opacity: 100%;
   transition: opacity linear 2s;
+  color: #fff;
 }
 
 .modal__button:hover {
@@ -100,6 +101,8 @@
 
 @media screen and (max-width: 620px) {
   .modal {
+    width: unset;
+    min-width: 282px;
     padding: 0 19px;
   }
 

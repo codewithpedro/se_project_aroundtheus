@@ -59,16 +59,16 @@ initialCards.forEach(cardData => {
 
 function openModal(e){
   e.preventDefault();
-  modal.classList.add("modal__opened");
+  modal.classList.add("modal_opened");
   modalName.value = profileTitle.textContent;
   modalDesc.value = profileDesc.textContent;
 }
 
 function closeModal(){
-  modal.classList.remove("modal__opened");
+  modal.classList.remove("modal_opened");
 }
 
-function saveModal(e){
+function handleProfileFormSubmit(e){
   e.preventDefault();
   profileTitle.textContent = modalName.value;
   profileDesc.textContent = modalDesc.value;
@@ -77,4 +77,4 @@ function saveModal(e){
 
 profileEditButton.addEventListener("click", openModal);
 modalCloseButton.addEventListener("click", closeModal);
-modalEditForm.addEventListener("submit", saveModal);
+modalEditForm.addEventListener("submit", handleProfileFormSubmit);
