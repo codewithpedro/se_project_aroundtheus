@@ -36,6 +36,27 @@ const modalName = document.querySelector("#modal__name");
 const modalDesc = document.querySelector("#modal__desc");
 const modalEditForm = document.querySelector(".modal__form")
 
+const cardsEl = document.querySelector(".cards");
+const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
+
+function getCardElement(data) {
+
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+
+  cardTitleEl.textContent = data.name;
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+  return cardElement;
+}
+
+
+initialCards.forEach(cardData => {
+  const cardElement = getCardElement(cardData);
+  cardsEl.prepend(cardElement);
+});
+
 function openModal(e){
   e.preventDefault();
   modal.classList.add("modal__opened");
