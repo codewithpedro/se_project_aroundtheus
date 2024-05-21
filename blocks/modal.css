@@ -1,5 +1,6 @@
 .modal {
   display: none;
+  box-sizing: border-box;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -111,7 +112,7 @@
   }
 
   .modal__close {
-    top: -56px;
+    top: -54px;
     right: 0px;
   }
 }
