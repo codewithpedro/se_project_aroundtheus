@@ -40,13 +40,26 @@
       <p class="footer__subtitle">©2022 Around The U.S.</p>
     </footer>
   </div>
-  <div class="modal">
+  //Edit profile modal
+  <div class="modal" id="edit-modal">
     <div class="modal__container">
       <button type="button" class="modal__close"></button>
       <h3 class="modal__heading">Edit Profile</h3>
       <form class="modal__form">
         <input id="modal__name" type="text" name="name" class="modal__input" />
-        <input id="modal__desc" type="text" name="modal__desc" class="modal__input" value="Explorer" />
+        <input id="modal__desc" type="text" name="modal__desc" class="modal__input" />
+        <button type="submit" class="modal__button">Save</button>
+      </form>
+    </div>
+  </div>
+  // Add card modal
+  <div class="modal" id="">
+    <div class="modal__container">
+      <button type="button" class="modal__close"></button>
+      <h3 class="modal__heading">Edit Profile</h3>
+      <form class="modal__form">
+        <input type="text" name="title" class="modal__input modal__input_title" />
+        <input type="text" name="url" class="modal__input modal__input_url" />
         <button type="submit" class="modal__button">Save</button>
       </form>
     </div>
