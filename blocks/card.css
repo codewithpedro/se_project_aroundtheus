@@ -42,7 +42,10 @@
   border: none;
   opacity: 100%;
   transition: opacity 2s linear;
+}
 
+.card__like-button_active {
+  background: url("../images/like-active.svg");
 }
 
 .card__like-button:hover {
