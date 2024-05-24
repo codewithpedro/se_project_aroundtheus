@@ -54,6 +54,16 @@ function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+  const likeButton = cardElement.querySelector('.card__like-button');
+  const trashButton = cardElement.querySelector(".card__trash");
+
+    likeButton.addEventListener("click", () => {
+      likeButton.classList.toggle("card__like-button_active");
+    })
+
+  trashButton.addEventListener("click", () => {
+    cardElement.remove();
+  })
 
   cardTitleEl.textContent = data.name;
   cardImageEl.src = data.link;
@@ -104,12 +114,3 @@ profileForm.addEventListener("submit",(e) => handleProfileFormSubmit(e, profileM
 cardForm.addEventListener("submit", (e) => handleCardFormSubmit(e, cardModal));
 cardAddButton.addEventListener("click", () => openModal(cardModal));
 cardCloseButton.addEventListener("click", () => closeModal(cardModal));
-
-
-const likeButtons = document.querySelectorAll('.card__like-button');
-
-likeButtons.forEach(heart => {
-  heart.addEventListener("click", () => {
-    heart.classList.toggle("card__like-button_active");
-  })
-});

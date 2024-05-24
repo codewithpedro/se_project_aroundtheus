@@ -1,5 +1,16 @@
 .card {
   border-radius: 10px;
+  position: relative;
+}
+
+.card__trash {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.card__trash:hover {
+  cursor: pointer;
 }
 
 .card__image {
