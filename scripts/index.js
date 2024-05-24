@@ -25,6 +25,9 @@ const initialCards = [
   },
 ]
 
+
+const closeButtons = document.querySelectorAll('.modal__close');
+
 const profileTitle = document.querySelector(".profile__title");
 const profileDesc = document.querySelector(".profile__description");
 
@@ -33,7 +36,6 @@ const profileFormName = document.querySelector("#modal__name");
 const profileFormDesc = document.querySelector("#modal__desc");
 const profileForm = document.querySelector(".modal__form")
 
-const profileCloseButton = profileModal.querySelector(".modal__close")
 const profileEditButton = document.querySelector(".profile__edit-button");
 
 const cardModal = document.querySelector("#add-card-modal");
@@ -42,14 +44,14 @@ const cardForm = cardModal.querySelector(".modal__form");
 const cardFormTitle = cardForm.querySelector(".modal__input_title");
 const cardFormURL = cardForm.querySelector(".modal__input_url");
 
-const cardCloseButton = cardModal.querySelector(".modal__close");
 const cardAddButton = document.querySelector(".profile__add-button");
 
 const cardsEl = document.querySelector(".cards");
 const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 
 const zoomModal = document.querySelector("#zoom-modal");
-const zoomCloseButton = zoomModal.querySelector(".modal__close");
+const zoomImageEl = zoomModal.querySelector(".modal__image");
+const zoomSubtitleEl = zoomModal.querySelector(".modal__subtitle");
 
 function getCardElement(data) {
 
@@ -64,8 +66,6 @@ function getCardElement(data) {
   trashButton.addEventListener("click", () => cardElement.remove())
 
   cardImageEl.addEventListener("click", () => {
-    const zoomImageEl = zoomModal.querySelector(".modal__image");
-    const zoomSubtitleEl = zoomModal.querySelector(".modal__subtitle");
 
     zoomImageEl.src = data.link;
     zoomImageEl.alt = data.name;
@@ -107,6 +107,8 @@ function handleCardFormSubmit(e, modal){
   const name = cardFormTitle.value;
   const link = cardFormURL.value;
 
+  e.target.reset();
+
   renderCard({name, link}, cardsList);
   closeModal(modal);
 }
@@ -116,11 +118,15 @@ profileEditButton.addEventListener("click", () => {
   profileFormDesc.value = profileDesc.textContent;
   openModal(profileModal)
 });
-profileCloseButton.addEventListener("click", () => closeModal(profileModal));
 profileForm.addEventListener("submit",(e) => handleProfileFormSubmit(e, profileModal));
 
 cardForm.addEventListener("submit", (e) => handleCardFormSubmit(e, cardModal));
 cardAddButton.addEventListener("click", () => openModal(cardModal));
-cardCloseButton.addEventListener("click", () => closeModal(cardModal));
 
-zoomCloseButton.addEventListener("click", () => closeModal(zoomModal));
+
+closeButtons.forEach(button => {
+  const modal = button.closest('.modal');
+  console.log('closing');
+  button.addEventListener("click", () => closeModal(modal));
+})
+
