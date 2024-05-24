@@ -48,6 +48,8 @@ const cardAddButton = document.querySelector(".profile__add-button");
 const cardsEl = document.querySelector(".cards");
 const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 
+const zoomModal = document.querySelector("#zoom-modal");
+const zoomCloseButton = zoomModal.querySelector(".modal__close");
 
 function getCardElement(data) {
 
@@ -57,12 +59,18 @@ function getCardElement(data) {
   const likeButton = cardElement.querySelector('.card__like-button');
   const trashButton = cardElement.querySelector(".card__trash");
 
-    likeButton.addEventListener("click", () => {
-      likeButton.classList.toggle("card__like-button_active");
-    })
+  likeButton.addEventListener("click", () => likeButton.classList.toggle("card__like-button_active"))
 
-  trashButton.addEventListener("click", () => {
-    cardElement.remove();
+  trashButton.addEventListener("click", () => cardElement.remove())
+
+  cardImageEl.addEventListener("click", () => {
+    const zoomImageEl = zoomModal.querySelector(".modal__image");
+    const zoomSubtitleEl = zoomModal.querySelector(".modal__subtitle");
+
+    zoomImageEl.src = data.link;
+    zoomImageEl.alt = data.name;
+    zoomSubtitleEl.textContent = data.name;
+    openModal(zoomModal);
   })
 
   cardTitleEl.textContent = data.name;
@@ -114,3 +122,5 @@ profileForm.addEventListener("submit",(e) => handleProfileFormSubmit(e, profileM
 cardForm.addEventListener("submit", (e) => handleCardFormSubmit(e, cardModal));
 cardAddButton.addEventListener("click", () => openModal(cardModal));
 cardCloseButton.addEventListener("click", () => closeModal(cardModal));
+
+zoomCloseButton.addEventListener("click", () => closeModal(zoomModal));

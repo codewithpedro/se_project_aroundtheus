@@ -26,6 +26,26 @@
   width: 430px;
 }
 
+.modal__container-zoom {
+  background: none;
+  border-radius: unset;
+  width: unset;
+  padding: 0;
+  color: white;
+}
+
+.modal__image {
+  max-height: 75vh;
+  max-width: 75vw;
+}
+
+.modal__subtitle {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  bottom: -28px;
+}
+
 .modal__close {
   border: none;
   background-color: transparent;
