@@ -1,5 +1,5 @@
 .modal {
-  display: none;
+  display: flex;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
@@ -11,10 +11,14 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 99;
   padding: 0 9px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s linear 0.5s, opacity 1s linear;
 }
 
 .modal_opened {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
@@ -135,6 +139,15 @@
     padding: 22px 25px;
   }
 
+  .modal__container-zoom {
+    padding: 0;
+  }
+
+  .modal__subtitle {
+    font-size: 12px;
+    bottom: -22px;
+  }
+
   .modal__heading {
     font-size: 18px;
   }
@@ -144,5 +157,10 @@
     right: 0px;
     width: 26px;
     height: 26px;
+  }
+
+  .modal__close-zoom {
+    right: -30px;
+    top: -30px;
   }
 }
