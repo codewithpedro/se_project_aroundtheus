@@ -86,6 +86,11 @@
   margin: 0 0 54px 0;
 }
 
+.modal__label {
+  position: relative;
+  display: block;
+}
+
 .modal__input {
   display: block;
   width: 100%;
@@ -127,6 +132,23 @@
 .modal__button:hover {
   opacity: 80%;
   cursor: pointer;
+}
+
+.modal__button_disabled {
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 2px;
+  background: none;
+  color: rgba(0, 0, 0, .2);
+}
+
+.modal__error {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  line-height: 1.2;
+  top: 40px;
+  left: 0;
+  right: 0;
 }
 
 @media screen and (max-width: 620px) {

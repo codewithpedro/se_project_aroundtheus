@@ -53,6 +53,8 @@ const zoomModal = document.querySelector("#zoom-modal");
 const zoomImageEl = zoomModal.querySelector(".modal__image");
 const zoomSubtitleEl = zoomModal.querySelector(".modal__subtitle");
 
+const modals = [...document.querySelectorAll('.modal')];
+
 function getCardElement(data) {
 
   const cardElement = cardTemplate.cloneNode(true);
@@ -89,6 +91,10 @@ function renderCard(cardData, list) {
 
 function openModal(modal){
   modal.classList.add("modal_opened");
+  modal.tabIndex = '-1'
+  setTimeout(() => {
+    modal.focus({focusVisible: true});
+  }, 50);
 }
 
 function closeModal(modal){
@@ -113,6 +119,14 @@ function handleCardFormSubmit(e, modal){
   closeModal(modal);
 }
 
+function handleEsc(e) {
+  if (e.key === "Escape") closeModal(e.target);
+}
+
+function handleClick(e){
+  if (e.target.classList.contains("modal")) closeModal(e.target);
+}
+
 profileEditButton.addEventListener("click", () => {
   profileFormName.value = profileTitle.textContent;
   profileFormDesc.value = profileDesc.textContent;
@@ -126,7 +140,10 @@ cardAddButton.addEventListener("click", () => openModal(cardModal));
 
 closeButtons.forEach(button => {
   const modal = button.closest('.modal');
-  console.log('closing');
   button.addEventListener("click", () => closeModal(modal));
 })
 
+modals.forEach(modal => {
+  modal.addEventListener('keydown', handleEsc)
+  modal.addEventListener('click', handleClick);
+})
