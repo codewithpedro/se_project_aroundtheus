@@ -91,6 +91,9 @@ function renderCard(cardData, list) {
 
 function openModal(modal){
   modal.classList.add("modal_opened");
+  modal.addEventListener('keydown', handleEsc)
+  modal.addEventListener('click', handleClick);
+
   modal.tabIndex = '-1'
   setTimeout(() => {
     modal.focus({focusVisible: true});
@@ -98,6 +101,8 @@ function openModal(modal){
 }
 
 function closeModal(modal){
+  modal.removeEventListener('keydown', handleEsc);
+  modal.removeEventListener('click', handleClick);
   modal.classList.remove("modal_opened");
 }
 
@@ -141,9 +146,4 @@ cardAddButton.addEventListener("click", () => openModal(cardModal));
 closeButtons.forEach(button => {
   const modal = button.closest('.modal');
   button.addEventListener("click", () => closeModal(modal));
-})
-
-modals.forEach(modal => {
-  modal.addEventListener('keydown', handleEsc)
-  modal.addEventListener('click', handleClick);
 })
