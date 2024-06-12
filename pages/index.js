@@ -1,3 +1,6 @@
+//import Card from "../components/Card.js"
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards = [
   {
   name: "Yosemite Valley",
@@ -34,7 +37,7 @@ const profileDesc = document.querySelector(".profile__description");
 const profileModal = document.querySelector("#edit-modal");
 const profileFormName = document.querySelector("#modal__name");
 const profileFormDesc = document.querySelector("#modal__desc");
-const profileForm = document.querySelector(".modal__form")
+const profileForm = profileModal.querySelector(".modal__form")
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 
@@ -54,6 +57,20 @@ const zoomImageEl = zoomModal.querySelector(".modal__image");
 const zoomSubtitleEl = zoomModal.querySelector(".modal__subtitle");
 
 const modals = [...document.querySelectorAll('.modal')];
+
+const validationSettings =  {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+}
+
+const editFormValidator = new FormValidator(validationSettings, profileForm);
+const addFormValidator = new FormValidator(validationSettings, cardForm);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
 function getCardElement(data) {
 
