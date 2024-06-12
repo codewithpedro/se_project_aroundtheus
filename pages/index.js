@@ -46,6 +46,7 @@ const cardsList = document.querySelector(".cards");
 const cardForm = cardModal.querySelector(".modal__form");
 const cardFormTitle = cardForm.querySelector(".modal__input_title");
 const cardFormURL = cardForm.querySelector(".modal__input_url");
+const cardModalButton = cardModal.querySelector(".modal__button")
 
 const cardAddButton = document.querySelector(".profile__add-button");
 
@@ -75,10 +76,10 @@ const addFormValidator = new FormValidator(validationSettings, cardForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-function handleImageClick(data){
-    zoomImageEl.src = data._link;
-    zoomImageEl.alt = data._name;
-    zoomSubtitleEl.textContent = data._name;
+function handleImageClick(name, link){
+    zoomImageEl.src = link;
+    zoomImageEl.alt = name;
+    zoomSubtitleEl.textContent = name;
     openModal(zoomModal);
 }
 
@@ -104,6 +105,7 @@ function openModal(modal){
 function closeModal(modal){
   modal.removeEventListener('keydown', handleEsc);
   modal.removeEventListener('click', handleClick);
+  modal.querySelector(".modal__form").reset();
   modal.classList.remove("modal_opened");
 }
 
@@ -120,6 +122,8 @@ function handleCardFormSubmit(e, modal){
   const link = cardFormURL.value;
 
   e.target.reset();
+  cardModalButton.disabled = true;
+  cardModalButton.classList.add("modal__button_disabled");
 
   renderCard({name, link}, cardsList);
   closeModal(modal);
