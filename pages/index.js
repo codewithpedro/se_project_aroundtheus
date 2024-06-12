@@ -1,4 +1,4 @@
-//import Card from "../components/Card.js"
+import Card from "../components/Card.js"
 import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
@@ -50,7 +50,8 @@ const cardFormURL = cardForm.querySelector(".modal__input_url");
 const cardAddButton = document.querySelector(".profile__add-button");
 
 const cardsEl = document.querySelector(".cards");
-const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
+//const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
+const cardTemplate = '#card-template';
 
 const zoomModal = document.querySelector("#zoom-modal");
 const zoomImageEl = zoomModal.querySelector(".modal__image");
@@ -58,6 +59,8 @@ const zoomSubtitleEl = zoomModal.querySelector(".modal__subtitle");
 
 const modals = [...document.querySelectorAll('.modal')];
 
+
+/* Validation */
 const validationSettings =  {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
@@ -72,38 +75,19 @@ const addFormValidator = new FormValidator(validationSettings, cardForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-function getCardElement(data) {
-
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector('.card__like-button');
-  const trashButton = cardElement.querySelector(".card__trash");
-
-  likeButton.addEventListener("click", () => likeButton.classList.toggle("card__like-button_active"))
-
-  trashButton.addEventListener("click", () => cardElement.remove())
-
-  cardImageEl.addEventListener("click", () => {
-
-    zoomImageEl.src = data.link;
-    zoomImageEl.alt = data.name;
-    zoomSubtitleEl.textContent = data.name;
+function handleImageClick(data){
+    zoomImageEl.src = data._link;
+    zoomImageEl.alt = data._name;
+    zoomSubtitleEl.textContent = data._name;
     openModal(zoomModal);
-  })
-
-  cardTitleEl.textContent = data.name;
-  cardImageEl.src = data.link;
-  cardImageEl.alt = data.name;
-  return cardElement;
 }
-
 
 initialCards.forEach(cardData => renderCard(cardData, cardsList));
 
 function renderCard(cardData, list) {
-  const cardElement = getCardElement(cardData);
-  list.prepend(cardElement);
+  //const cardElement = getCardElement(cardData);
+  const cardEl = new Card(cardData, cardTemplate, handleImageClick);
+  list.prepend(cardEl.getView());
 }
 
 function openModal(modal){
