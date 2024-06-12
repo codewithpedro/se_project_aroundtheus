@@ -105,7 +105,9 @@ function openModal(modal){
 function closeModal(modal){
   modal.removeEventListener('keydown', handleEsc);
   modal.removeEventListener('click', handleClick);
-  modal.querySelector(".modal__form").reset();
+
+  const formInput = modal.querySelector(".modal__form");
+  if (formInput) formInput.reset();
   modal.classList.remove("modal_opened");
 }
 
