@@ -69,9 +69,8 @@ export default class FormValidator {
   enableValidation() {
     this._form.addEventListener("submit", e => {
       e.preventDefault();
-      if (e.originalTarget.id === "add-card-form"){ this._disabledButton()}
+      if (e.target.id === "add-card-form"){ this._disabledButton()}
     })
-
     this._setEventListeners();
   }
 
