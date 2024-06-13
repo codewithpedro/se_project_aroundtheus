@@ -51,7 +51,6 @@ const cardModalButton = cardModal.querySelector(".modal__button")
 const cardAddButton = document.querySelector(".profile__add-button");
 
 const cardsEl = document.querySelector(".cards");
-//const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 const cardTemplate = '#card-template';
 
 const zoomModal = document.querySelector("#zoom-modal");
@@ -86,7 +85,6 @@ function handleImageClick(name, link){
 initialCards.forEach(cardData => renderCard(cardData, cardsList));
 
 function renderCard(cardData, list) {
-  //const cardElement = getCardElement(cardData);
   const cardEl = new Card(cardData, cardTemplate, handleImageClick);
   list.prepend(cardEl.getView());
 }
@@ -99,15 +97,13 @@ function openModal(modal){
   modal.tabIndex = '-1'
   setTimeout(() => {
     modal.focus({focusVisible: true});
-  }, 50);
+  }, 100);
 }
 
 function closeModal(modal){
   modal.removeEventListener('keydown', handleEsc);
   modal.removeEventListener('click', handleClick);
 
-  const formInput = modal.querySelector(".modal__form");
-  if (formInput) formInput.reset();
   modal.classList.remove("modal_opened");
 }
 
@@ -124,9 +120,6 @@ function handleCardFormSubmit(e, modal){
   const link = cardFormURL.value;
 
   e.target.reset();
-  cardModalButton.disabled = true;
-  cardModalButton.classList.add("modal__button_disabled");
-
   renderCard({name, link}, cardsList);
   closeModal(modal);
 }

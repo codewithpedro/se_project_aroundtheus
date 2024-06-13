@@ -9,6 +9,7 @@ export default class FormValidator {
     inputEl.classList.add(this._settings.inputErrorClass);
     errorMessageEl.textContent = inputEl.validationMessage;
     errorMessageEl.classList.add(this._settings.errorClass)
+    this._disabledButton()
   }
 
 
@@ -17,6 +18,7 @@ export default class FormValidator {
     inputEl.classList.remove(this._settings.inputErrorClass);
     errorMessageEl.textContent = "";
     errorMessageEl.classList.remove(this._settings.errorClass)
+    this._enabledButton();
   }
 
 
@@ -33,7 +35,7 @@ export default class FormValidator {
   }
 
 
-  _disabledButton (inactiveButtonClass) {
+  _disabledButton() {
     this._submitButton.classList.add(this._settings.inactiveButtonClass);
     this._submitButton.disabled = true;
   }
@@ -67,6 +69,7 @@ export default class FormValidator {
   enableValidation() {
     this._form.addEventListener("submit", e => {
       e.preventDefault();
+      if (e.originalTarget.id === "add-card-form"){ this._disabledButton()}
     })
 
     this._setEventListeners();
